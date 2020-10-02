@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="sidebar text-center">
+    <div class="prof-icon d-flex justify-center">
+      <span class="outer-prof-pic">
+        <span class="inner-prof-pic">
+          <img src="assets/img/profile_photo.jpg" height="160" width="160"/>
+        </span>
+      </span>
+    </div>
+    <h2>Susobhan Dash</h2>
+    <p>UI Developer</p>
+    <ul class="nav-links">
+      <li class="nav-item" [routerLink]="['/home']" [routerLinkActive]="'active'">
+        <a>Home</a>
+      </li>
+      <li class="nav-item" [routerLink]="['/about']" [routerLinkActive]="'active'">
+        <a>About</a>
+      </li>
+      <li class="nav-item" [routerLink]="['/portfolio']" [routerLinkActive]="'active'">
+        <a>Portfolio</a>
+      </li>
+      <li class="nav-item" [routerLink]="['/contact']" [routerLinkActive]="'active'">
+        <a>Contact</a>
+      </li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
