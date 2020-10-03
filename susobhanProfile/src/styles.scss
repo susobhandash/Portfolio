@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+// @import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
+
 /* ---------------------------- Mixins ---------------------------- */
 @mixin outShadow {
     box-shadow: -3px -3px 7px hsla(0,0%,100%,.45), 3px 3px 5px rgba(18,18,19,.288);
@@ -34,6 +36,12 @@
     display: inline-block;
 }
 
+.col {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex: 1;
+}
+
 .align-center {
     align-items: center;
 }
@@ -56,6 +64,9 @@
 .justify-between {
     justify-content: space-between;
 }
+.justify-around {
+    justify-content: space-around;
+}
 
 .flex-column {
     flex-direction: column;
@@ -74,6 +85,54 @@
 
 .h-100 {
     height: 100%;
+}
+
+.m-0 {
+    margin: 0!important;
+}
+.ml-0 {
+    margin-left: 0!important;
+}
+.mr-0 {
+    margin-right: 0!important;
+}
+.mt-0 {
+    margin-top: 0!important;
+}
+.mb-0 {
+    margin-bottom: 0!important;
+}
+
+.mt-1 {
+    margin-top: 1rem!important;
+}
+.mt-2 {
+    margin-top: 2rem!important;
+}
+
+.mb-1 {
+    margin-bottom: 1rem!important;
+}
+.mb-2 {
+    margin-bottom: 2rem!important;
+}
+
+.chips {
+    margin-right: 30px;
+    margin-bottom: 15px;
+    display: inline-block;
+    font-weight: bolder;
+    color: #f56c6d;
+    text-align: center;
+    padding: 8px 24px;
+    border-radius: 50px;
+    @include inShadow;
+}
+
+.vertical_separator {
+    width: 100%;
+    border: 0.5px solid #ccc;
+    display: block;
 }
 /* ---------------------------- Applcation ---------------------------- */
 body, ul {
@@ -96,6 +155,7 @@ p {
 
 h1, h2, h3, h4, h5 {
     margin: 10px 0px;
+    // color: #f56c6d;
 }
 
 .container {
@@ -156,10 +216,12 @@ h1, h2, h3, h4, h5 {
         font-size: 1rem;
         cursor: pointer;
         overflow: hidden;
-        // transition: box-shadow 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
 
         &.active {
             @include inShadow;
+            color: #f56c6d;
+            font-weight: 500;
         }
 
         &:focus {
@@ -185,4 +247,154 @@ h1, h2, h3, h4, h5 {
     height: 92vh;
     position: relative;
     padding: 20px;
+}
+
+.education-list {
+    position: relative;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    li {
+        list-style: disc;
+        list-style-position: outside;
+        position: relative;
+        left: -10px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 15px;
+            width: 15px;
+            background: #f56c6d;
+            border-radius: 50%;
+            left: -23px;
+            top: 5px;
+            @include outShadow;
+        }
+    }
+
+    &::before {
+        content: '';
+        left: 0;
+        top: 0;
+        border-radius: 3px;
+        position: absolute;
+        height: 100%;
+        width: 8px;
+        @include inShadow;
+    }
+}
+
+.portfolio-item {
+    width: 400px;
+    height: 220px;
+    padding: 10px;
+    @include inShadow;
+    @include br-10;
+
+    > div {
+        @include outShadow;
+        @include br-10;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        padding: 10px;
+
+        &:hover {
+            h4 {
+                opacity: 1;
+            }
+
+            .project1::after,
+            .project2::after {
+                visibility: visible;
+            }
+        }
+
+        > a {
+            height: 100%;
+            width: 100%;
+            @include br-10;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-decoration: none;
+            
+            h4 {
+                opacity: 0;
+                z-index: 2;
+                color: #fff;
+                transition: all ease-in-out 0.3s;
+                cursor: pointer;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.75);
+                visibility: hidden;
+                z-index: 1;
+            }
+
+            &.project1 {
+                background-image: url('assets/img/project1.png');
+                background-size: 100% 100%;
+            }
+
+            &.project2 {
+                background-image: url('assets/img/project2.png');
+            }
+        }
+    }
+}
+
+.social {
+    width: 50%;
+    @include inShadow;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 80px;
+    @include br-10;
+
+    .social-btn {
+        height: 50px;
+        width: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        @include outShadow;
+        @include br-10;
+        cursor: pointer;
+        font-size: 30px;
+        text-decoration: none;
+
+        &.facebook {
+            color: #4267B2;
+        }
+        &.linkedin {
+            color: #0e76a8;
+        }
+        &.github {
+            color: #211F1F;
+        }
+        &.gmail {
+            color: #B23121;
+        }
+
+        &:hover {
+            @include inShadow;
+        }
+    }
 }
