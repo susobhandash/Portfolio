@@ -9,6 +9,8 @@ import { AboutComponent } from '../pages/about/about.component';
 import { PortfolioComponent } from '../pages/portfolio/portfolio.component';
 import { ContactComponent } from '../pages/contact/contact.component';
 
+import { EzNgLibModule } from 'ez-ng-lib';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { ContactComponent } from '../pages/contact/contact.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EzNgLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]
