@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getNextText();
-    this.typeWriterText= "Around 4 years of experience in Front End Technologies";
+    this.typeWriterText= "Around 6 years of experience in Front End Technologies";
     this.typingCallback(this);
   }
 
