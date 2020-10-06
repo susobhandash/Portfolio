@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   texts_for_display = [
-    "Around 4 years of experience in Front End Technologies",
+    "Around 6 years of experience in Front End Technologies",
     "Hard Wokring Passionate to learn new technologies",
     "Interested in developing reusable components and libraries",
     "Proficient in Angular 6+, JS and CSS and many 3rd party libraries"
